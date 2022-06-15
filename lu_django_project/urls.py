@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('say_hello', lu_app.views.show_hello),
     path('show_html', lu_app.views.show_html),
+    path('get_time', lu_app.views.get_time),
 ]

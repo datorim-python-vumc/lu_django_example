@@ -17,5 +17,19 @@ def show_html(request):
                   context=context)
 
 
+def get_time(request):
+    from datetime import datetime
+
+    context = {
+        'now': datetime.now(),
+    }
+
+    return render(request,
+                  template_name='time.html',
+                  context=context)
+
 # Izveidot skatu, kas pie '/get_time' parādīs laiku un datumu
 # Jāizmanto datetime modulis
+
+# jāizdara tas pats (var izmantot to pašu funkciju)
+# laikam jāparādās kā h1 virsrakstam
