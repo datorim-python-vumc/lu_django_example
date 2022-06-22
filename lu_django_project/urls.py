@@ -23,4 +23,7 @@ urlpatterns = [
     path('say_hello', lu_app.views.show_hello),
     path('show_html', lu_app.views.show_html),
     path('get_time', lu_app.views.get_time),
+    path('enter_name', lu_app.views.enter_name),
+    path('university', lu_app.views.university),
+    path('add_post', lu_app.views.add_post),
 ]

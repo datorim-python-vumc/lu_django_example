@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Univesrsity Form</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        Full name: <input type="text" name="full_name"><br>
+        Mathematics: <input type="text" name="mat"><br>
+        Latvian language: <input type="text" name="lat"><br>
+        Foreign language: <input type="text" name="for"><br>
+
+        <input type="submit">
+    </form>
+</body>
+</html>
