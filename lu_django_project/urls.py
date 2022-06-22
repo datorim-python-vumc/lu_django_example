@@ -26,4 +26,7 @@ urlpatterns = [
     path('enter_name', lu_app.views.enter_name),
     path('university', lu_app.views.university),
     path('add_post', lu_app.views.add_post),
+    path('', lu_app.views.get_all_posts),
+    path('get_post/<int:post_id>', lu_app.views.get_post),
 ]
+

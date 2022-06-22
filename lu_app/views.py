@@ -97,11 +97,23 @@ def add_post(request):
                   context=context)
 
 
-# izveidot jaunu skatu
+def get_all_posts(request):
 
-# ja metode ir GET
-    # parādīt formu, kurā var ievadīt
-    # raksta nosaukumu un saturu
+    context = {
+        'posts': Post.objects.all()
+    }
 
-# ja metode ir POST
-    # parādīt raksta nosaukumu, laiku un saturu
+    return render(request,
+                  template_name='all_posts.html',
+                  context=context)
+
+
+def get_post(request, post_id):
+
+    context = {
+        'post': Post.objects.get(id=post_id)
+    }
+
+    return render(request,
+                  template_name='post.html',
+                  context=context)
