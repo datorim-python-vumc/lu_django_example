@@ -68,11 +68,15 @@ def university(request):
 def add_post(request):
     from datetime import datetime
 
-    if request.method == 'POST':
+    from lu_app.forms import AddPostForm
+
+    form = AddPostForm(request.POST or None)
+
+    if form.is_valid():
 
         context = {
-            'title': request.POST['title'],
-            'content': request.POST['content'],
+            'title': form.cleaned_data['title'],
+            'content': form.cleaned_data['content'],
             'time': datetime.now(),
         }
 
@@ -80,8 +84,13 @@ def add_post(request):
                       template_name='post.html',
                       context=context)
 
+    context = {
+        'form': form,
+    }
+
     return render(request,
-                  template_name='add_post.html')
+                  template_name='add_post.html',
+                  context=context)
 
 
 # izveidot jaunu skatu
