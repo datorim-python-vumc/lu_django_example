@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 
+from lu_app.models import Post
 
 def show_hello(request):
     return HttpResponse('Hello!')
@@ -74,10 +75,13 @@ def add_post(request):
 
     if form.is_valid():
 
+        post = Post(title=form.cleaned_data['title'],
+                    content=form.cleaned_data['content'],
+                    time=datetime.now())
+        post.save()
+
         context = {
-            'title': form.cleaned_data['title'],
-            'content': form.cleaned_data['content'],
-            'time': datetime.now(),
+            'post': post,
         }
 
         return render(request,
